@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This is for the Senior SWE coding interview.
+This is for the Senior SWE coding interview with Grainger.
 
 This application saves and displays different products.
 
@@ -13,7 +13,6 @@ There are 3 components to this project:
 - React UI
 
 ## Getting started
-
 There are 2 ways to start the application:
 
 - Docker
@@ -24,7 +23,7 @@ There are 2 ways to start the application:
 To start the application with docker, ensure you have the following prerequisites:
 
 - Docker desktop installed locally
-- `docker-compose` installed locallly
+- docker-compose installed locallly
 
 Once you have the prerequisites, simply navigate to the root of the repository and run:
 `docker-compose build`
