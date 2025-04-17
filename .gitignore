@@ -1,3 +1,5 @@
 api/.gradle/
 .vscode/
 node_modules/
+api/build/
+ui/dist/

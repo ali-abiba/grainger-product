@@ -3,28 +3,34 @@
   "version": "1.0.0",
   "description": "An application to allow users to manage products",
   "main": "index.js",
+  "type": "module",
+
   "scripts": {
     "start": "webpack serve --mode development",
-    "build": "webpack --mode production",
+    "build": "ts-node --esm ./node_modules/webpack/bin/webpack.js --config ./webpack.config.ts",
     "test": "echo \"No test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "webpack": "^5.0.0",
-    "webpack-cli": "^5.0.0",
-    "webpack-dev-server": "^4.0.0",
-    "ts-loader": "^9.0.0",
-    "html-webpack-plugin": "^5.0.0",
-    "style-loader": "^3.0.0",
-    "css-loader": "^6.0.0",
-    "sass-loader": "^13.0.0",
-    "sass": "^1.0.0",
-    "typescript": "^5.0.0"
+    "@types/react": "19.1.2",
+    "@types/react-dom": "19.1.2",
+    "@types/webpack": "5.28.5",
+    "css-loader": "6.0.0",
+    "html-webpack-plugin": "5.0.0",
+    "sass": "1.3.0",
+    "sass-loader": "13.0.0",
+    "style-loader": "3.0.0",
+    "ts-loader": "9.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3",
+    "webpack": "5.99.5",
+    "webpack-cli": "5.1.4",
+    "webpack-dev-server": "4.15.2"
   },
   "dependencies": {
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react": "18.0.0",
+    "react-dom": "18.0.0"
   }
 }

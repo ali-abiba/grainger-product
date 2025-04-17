@@ -1,45 +1,53 @@
 import path from 'path';
+import { fileURLToPath } from 'url';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import { Configuration } from 'webpack';
+import { Configuration as WebpackConfiguration } from 'webpack';
+import 'webpack-dev-server';
 
-const config: Configuration = {
-  mode: 'development', // Change to 'production' for production builds
-  entry: './src/index.tsx', // Entry point of your application
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const config = {
+  mode: 'production',
+  entry: './src/index.tsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
-    clean: true, // Cleans the output directory before each build
+    clean: true,
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'], // Resolve these extensions
+    extensions: ['.tsx', '.ts', '.js'],
+    alias: {
+      src: path.resolve(__dirname, 'src'),
+    },
   },
   module: {
     rules: [
       {
-        test: /\.tsx?$/, // Matches .ts and .tsx files
+        test: /\.tsx?$/,
         use: 'ts-loader',
         exclude: /node_modules/,
       },
       {
-        test: /\.scss$/, // Matches .scss files
-        use: ['style-loader', 'css-loader', 'sass-loader'], // Process SASS files
+        test: /\.scss$/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
-        test: /\.(png|jpe?g|gif|svg)$/, // Matches image files
-        type: 'asset/resource', // Handles image assets
+        test: /\.(png|jpe?g|gif|svg)$/,
+        type: 'asset/resource',
       },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html', // HTML template file
+      template: './src/index.html',
     }),
   ],
   devServer: {
     static: path.join(__dirname, 'dist'),
-    port: 3000, // Development server port
-    open: true, // Automatically open the browser
-    hot: true, // Enable hot module replacement
+    port: 3000,
+    open: false,
+    hot: true,
   },
 };
 

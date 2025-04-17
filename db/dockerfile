@@ -4,7 +4,7 @@ FROM postgres:latest
 # Set environment variables for PostgreSQL
 ENV POSTGRES_USER=admin
 ENV POSTGRES_PASSWORD=admin
-ENV POSTGRES_DB=grainger_product
+ENV POSTGRES_DB=product
 
 # Copy the schema.sql file into the container
 COPY schema.sql /docker-entrypoint-initdb.d/schema.sql

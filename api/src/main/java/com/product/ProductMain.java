@@ -1,4 +1,4 @@
-package com.example;
+package com.product;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,10 +10,10 @@ public class ProductMain extends SpringBootServletInitializer {
 
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-        return builder.sources(MySpringBootApplication.class);
+        return builder.sources(ProductMain.class);
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(MySpringBootApplication.class, args);
+        SpringApplication.run(ProductMain.class, args);
     }
 }

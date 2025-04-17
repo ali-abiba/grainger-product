@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: ./api
+      dockerfile: dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: product
+      DB_USER: admin
+      DB_PASSWORD: admin
+
+  db:
+    build:
+      context: ./db
+      dockerfile: dockerfile
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: product
+    ports:
+      - "5433:5432"
+
+  ui:
+    build:
+      context: ./ui
+      dockerfile: dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - api
